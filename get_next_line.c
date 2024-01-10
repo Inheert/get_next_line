@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:17:55 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/08 16:42:20 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:39:49 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,24 @@ int	find_new_line(char *ptr)
 
 char	*get_new_line(int nl, char	**ptr)
 {
+	char	*new_ptr;
 	char	*new_line;
+	int		len;
 
-	new_line = ft_calloc(nl + 1, sizeof(char));
+	if (!*ptr)
+		return (NULL);
+	if (nl == -1)
+		nl = ft_strlen(*ptr);
+	len = ft_strlen(*ptr);
+	new_line = ft_substr(*ptr, 0, nl);
+	if (!new_line)
+		return (free(*ptr), NULL);
+	new_ptr = ft_substr(*ptr, nl + 1, len);
+	if (!new_ptr)
+		return (free(*ptr), free(new_line), NULL);
+	free(*ptr);
+	*ptr = new_ptr;
+	return (new_line);
 }
 
 int	read_file(int fd, char **ptr)
@@ -68,11 +83,13 @@ char	*get_next_line(int fd)
 		if (nl == -1)
 		{
 			rd = read_file(fd, &ptr);
-			if (rd == -1)
+			if (rd <= 0 && ft_strlen(ptr) < 1)
 				return (free(ptr), NULL);
+			else if (rd <= 0 && ft_strlen(ptr) >= 1)
+				break ;
 		}
 		else
 			break ;
 	}
-	return (ptr);
+	return (get_new_line(nl, &ptr));
 }

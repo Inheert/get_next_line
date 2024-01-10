@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:18:23 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/08 15:17:33 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/10 14:57:52 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 
 int		ft_strlen(char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_substr(char *s, unsigned int start, size_t len);
 char	*ft_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 

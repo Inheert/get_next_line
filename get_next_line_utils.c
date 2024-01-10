@@ -6,11 +6,29 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:17:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/08 16:38:42 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/10 16:35:36 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*new_s;
+	int		i;
+
+	new_s = ft_calloc(len - start + 1, sizeof(char));
+	if (!new_s)
+		return (NULL);
+	i = 0;
+	while (start < len && s[start])
+	{
+		new_s[i] = s[start];
+		i++;
+		start++;
+	}
+	return (new_s);
+}
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -42,7 +60,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*ptr;
 	size_t	size_max;
-	int		i;
+	size_t	i;
 
 	size_max = (size_t)-1;
 	if (nmemb == 0 || size == 0)
