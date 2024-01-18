@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:17:55 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/12 17:00:20 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:06:00 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*get_new_line(int nl, char	**ptr)
 	if (nl == -1)
 		nl = ft_strlen(*ptr) - 1;
 	len = ft_strlen(*ptr);
-	new_line = ft_substr(*ptr, 0, nl);
+	new_line = ft_substr(*ptr, 0, nl + 1);
 	if (!new_line)
 		return (free(*ptr), NULL);
 	new_ptr = ft_substr(*ptr, nl + 1, len);

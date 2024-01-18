@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:09:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/12 16:56:40 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:58:57 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,19 @@
 
 int	main(void)
 {
-	int		loop;
 	int		fd;
 	char	*line;
 
-	fd = open("./test.txt", O_RDONLY);
-	loop = 15;
-	while (loop != 0)
+	fd = open("./nl", O_RDONLY);
+	line = get_next_line(fd);
+	while (line)
 	{
-		line = get_next_line(fd);
 		if (line)
 		{
-			printf("%s\n", line);
+			printf("%s", line);
 			free(line);
 		}
-		loop--;
+		line = get_next_line(fd);
 	}
 	close(fd);
 	return (0);
