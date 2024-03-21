@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:18:23 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/18 17:43:53 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:31:40 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct	s_list
-{
-	char			*content;
-	struct s_list	*next;
-}				t_list;
 
 int		ft_strlen(char *s);
 void	*ft_calloc(size_t nmemb, size_t size);

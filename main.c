@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 13:09:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/01/18 17:58:57 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/03/21 09:42:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int		fd;
 	char	*line;
 
-	fd = open("./nl", O_RDONLY);
+	fd = open("./test2.txt", O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
 	{
